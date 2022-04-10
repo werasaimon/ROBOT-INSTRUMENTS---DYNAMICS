@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>datafiles/stone.3DS</file>
+        <file>datafiles/cube.png</file>
+        <file>datafiles/cube.jpg</file>
+        <file>datafiles/cube.bmp</file>
+        <file>datafiles/box.bmp</file>
+    </qresource>
+</RCC>
