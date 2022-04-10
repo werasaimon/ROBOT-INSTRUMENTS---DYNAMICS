@@ -95,19 +95,19 @@ namespace IMath
 
         //---------------------- Help function -------------------//
 
-        void twoaxisrot(T r11, T r12, T r21, T r31, T r32, T res[])
-        {
-          res[2] = IAtan2( r11, r12 );
-          res[1] = IACos( r21 );
-          res[0] = IAtan2( r31, r32 );
-        }
+//        void twoaxisrot(T r11, T r12, T r21, T r31, T r32, T res[])
+//        {
+//          res[2] = IAtan2( r11, r12 );
+//          res[1] = IACos( r21 );
+//          res[0] = IAtan2( r31, r32 );
+//        }
 
-        void threeaxisrot(T r11, T r12, T r21, T r31, T r32, T res[])
-        {
-          res[2] = IAtan2( r31, r32 );
-          res[1] = IASin( r21 );
-          res[0] = IAtan2( r11, r12 );
-        }
+//        void threeaxisrot(T r11, T r12, T r21, T r31, T r32, T res[])
+//        {
+//          res[2] = IAtan2( r31, r32 );
+//          res[1] = IASin( r21 );
+//          res[0] = IAtan2( r11, r12 );
+//        }
 
 
 
@@ -386,10 +386,10 @@ namespace IMath
             w = 1;
         }
 
-        SIMD_INLINE T R_component_1() const { return(w); }
-        SIMD_INLINE T R_component_2() const { return(x); }
-        SIMD_INLINE T R_component_3() const { return(y); }
-        SIMD_INLINE T R_component_4() const { return(z); }
+        SIMD_INLINE T _w() const { return(w); }
+        SIMD_INLINE T _x() const { return(x); }
+        SIMD_INLINE T _y() const { return(y); }
+        SIMD_INLINE T _z() const { return(z); }
 
 
         SIMD_INLINE IVector3D<T> GetImage() const { return IVector3D<T>(x,y,z); }
@@ -431,6 +431,8 @@ namespace IMath
             Normalize();
         }
 
+
+        /**
         /// Quaternion using Euler angles
         SIMD_INLINE IVector3D<T> GetEulerAngles3() const
         {
@@ -538,6 +540,8 @@ namespace IMath
             return IVector3D<T>(roll,pitch,yaw);
         }
 
+        **/
+
 
 
         ///////////////////////////////
@@ -560,6 +564,21 @@ namespace IMath
         {
             const IQuaternion<T> q(*this);
             T res[3];
+
+            static auto threeaxisrot = [](T r11, T r12, T r21, T r31, T r32, T res[])
+            {
+                res[2] = IAtan2( r31, r32 );
+                res[1] = IASin( r21 );
+                res[0] = IAtan2( r11, r12 );
+            };
+
+
+            static auto twoaxisrot = [](T r11, T r12, T r21, T r31, T r32, T res[])
+            {
+                res[2] = IAtan2( r11, r12 );
+                res[1] = IACos( r21 );
+                res[0] = IAtan2( r31, r32 );
+            };
 
             switch(rotSeq)
             {

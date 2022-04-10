@@ -467,6 +467,16 @@ private:
     }
 
     /**
+     * Sets rotation part (matrix 3x3) of matrix.
+     *
+     * @param m Rotation part of matrix
+     */
+    SIMD_INLINE void SetRotation(const IQuaternion<T>& q)
+    {
+        SetRotation(q);
+    }
+
+    /**
      * Sets position part (vector3) of matrix.
      *
      * @param m Position part of matrix

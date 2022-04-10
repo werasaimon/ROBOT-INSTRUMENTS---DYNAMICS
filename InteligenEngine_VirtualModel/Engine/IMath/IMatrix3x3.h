@@ -224,6 +224,7 @@ template<class T> class IMatrix3x3
 
       //---------------------[ assignment operations ]---------------------------------
 
+
       /**
       * Copy operator
       * @param rhs Right hand side argument of binary operator.
