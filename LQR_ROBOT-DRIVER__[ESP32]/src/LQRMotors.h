@@ -1,7 +1,7 @@
 #ifndef LQRMOTORS_H
 #define LQRMOTORS_H
 
-#include <InterruptEncoder.h>
+#include "InterruptEncoder.h"
 #include <MPU9250.h>
 #include "IMotor.h"
 

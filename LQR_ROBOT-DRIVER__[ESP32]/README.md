@@ -1,24 +1,27 @@
-# LQR_ROBOT_DRIVER | ESP32 WROOM 32D |
+How to build PlatformIO based project
+=====================================
 
-Видео-отчет 
-https://www.youtube.com/watch?v=7XymYXh8e6U
+1. [Install PlatformIO Core](https://docs.platformio.org/page/core.html)
+2. Download [development platform with examples](https://github.com/platformio/platform-espressif32/archive/develop.zip)
+3. Extract ZIP archive
+4. Run these commands:
 
+```shell
+# Change directory to example
+$ cd platform-espressif32/examples/arduino-blink
 
-[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/7XymYXh8e6U/0.jpg)](http://www.youtube.com/watch?v=7XymYXh8e6U)
+# Build project
+$ pio run
 
-#LQR “Линейно-квадратичный регулятор (англ. Linear quadratic regulator, LQR)”, 
-оптимизация систем управления для управления роботов, в данном случае на основе данных из датчика ориентации типа MPU9250 [гироскоп, акселерометр, магнитометр]. 
-Код написан на языке программирования С/С++ под микроконтроллер ESP32 wroom-32d. 
+# Upload firmware
+$ pio run --target upload
 
-Также в основном алгоритма синтеза данных из гироскопа, акселерометра, магнитометра, для получения точной ориентации робота в пространстве, основан на фильтре данных "Madgwick filter".for  [MPU9250] 
+# Build specific environment
+$ pio run -e esp32dev
 
-———————————————————
+# Upload firmware for the specific environment
+$ pio run -e esp32dev --target upload
 
-Такие методы оптимизации управления делятся на статические и динамические. Объект управления находится в состоянии непрерывного движения под действием различных внешних и внутренних факторов. Следовательно, оценка результата управления дается за время управления Т, и это задача динамической оптимизации.
-
-С помощью методов динамической оптимизации решаются задачи, связанные с распределением ограниченных ресурсов на протяжении некоторого промежутка времени, а целевая функция записывается в виде интегрального функционала.
-
- P. S:  Проще говоря, робот знает какую он имеет ориентацию в пространстве с помощью датчиков типа MPU9250, и на основе этих данных с помощью информации из энкодеров на моторах, вращает моторы робота так что: заставят ехать робота по такой траектории как мы это запрограммируем заранее , или укажем через пульт управления роботом! 
-
-
-![gjkabc](https://github.com/werasaimon/LQR_ROBOT_DRIVER--MPU9250-/blob/main/img/connection_diagram.jpg)
+# Clean build files
+$ pio run --target clean
+```

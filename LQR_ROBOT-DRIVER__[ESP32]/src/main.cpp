@@ -5,7 +5,7 @@
  */
 
 #include <Arduino.h>
-#include <ESP32Encoder.h>
+#include "ESP32Encoder.h"
 #include <InterruptEncoder.h>
 #include <WiFi.h>
 #include <WiFiUdp.h>
@@ -237,7 +237,7 @@ void setup()
   mpu.setFilterIterations(10);
   mpu.selectFilter(QuatFilterSel::MAHONY);
 
-  mpu.Init();
+  ////mpu.Init();
 
   delay(3000);
 
@@ -459,7 +459,7 @@ void print_roll_pitch_yaw()
     IMath::Quaternion Q(mpu.getQuaternionW(),
                         mpu.getQuaternionX(),
                         mpu.getQuaternionY(),
-                        mpu.getQuaternionZ());\
+                        mpu.getQuaternionZ());
 
     IMath::Quaternion Q_Target = 
     IMath::Quaternion::FromAxisRot(IMath::Vector3::Z, LQRRobot.offset_Yaw);
