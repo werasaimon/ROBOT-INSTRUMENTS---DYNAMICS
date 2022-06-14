@@ -3,6 +3,6 @@ ROBOTICS ROBOT IT
 
 ```bash
 # #install sdl2
-sudo apt install libsdl2-dev 
+sudo apt-get install libsdl2-dev 
 ```
 
