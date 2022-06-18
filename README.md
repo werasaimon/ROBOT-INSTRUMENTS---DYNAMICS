@@ -1,4 +1,4 @@
-# ROBOT-INSTRUMENTS---DYNAMICS
+# REMOTE_CONTROLER [Android]
 C/C++ Qt ESP32 Arduino OpenCV
 
 
