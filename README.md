@@ -16,3 +16,4 @@ Desktop Joystick
 sudo apt-get install libsdl2-dev 
 ```
 
+![bandicam 2020-07-31 03-50-36-209](https://github.com/werasaimon/Robot-Remote_Control/blob/main/img/Desktop_Joystick.png)
